@@ -8,11 +8,6 @@ const socket = require('socket.io');
 
 const app = express(); // express nesnesini örnekliyoruz.
 
-// Sunucunun root dizinine bir get isteği geldiğinde "Hello World" mesajını döndürüyoruz.
-app.get('/', (req, res) => {
-    res.send('Hello World');
-});
-
 const io = socket(
 
     // Sunucuyu ayağa kaldırıp dinlemeye başlıyoruz.
@@ -20,7 +15,7 @@ const io = socket(
         console.log('Server is running on port 3000');
     }), {
     cors: {
-        origin: 'http://localhost:3001',
+        origin: '*',
         methods: ['GET', 'POST']
     }
 });
